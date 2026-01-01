@@ -1,1 +1,417 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>文章｜ARC-方舟</title>
+<meta name="description" content="ARC-方舟科普對戲文章閱讀頁。" />
+css" />
+;
+width:min(1040px, 100%);
+radius:12px;
+05);
+08);
+border-color:rgba(255,255,255,.22);
+}
 
+.shell{
+margin-top:18px;
+border:1px solid rgba(255,255,255,.10);
+border-radius: 22px;
+background: linear-gradient(180deg, rgba(11,16,32,.70), rgba(11,16,32,.46));
+box-shadow: var(--shadow);
+overflow:hidden;
+}
+
+.hero{
+display:grid;
+grid-template-columns: 1fr;
+}
+.cover{
+width:100%;
+height: 240px;
+background: rgba(255,255,255,.05);
+border-bottom:1px solid rgba(255,255,255,.08);
+position:relative;
+overflow:hidden;
+}
+.cover img{
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:.92;
+transform: scale(1.02);
+}
+.cover::after{
+content:"";
+position:absolute; inset:0;
+background: linear-gradient(180deg, rgba(5,7,13,0.15), rgba(5,7,13,0.82));
+pointer-events:none;
+}
+
+.head{
+padding:18px 22px 12px;
+}
+.kicker{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:8px 12px;
+border:1px solid rgba(77,226,255,.25);
+border-radius:999px;
+color:var(--accent);
+background:rgba(77,226,255,.06);
+font-weight:750;
+letter-spacing:.3px;
+width:max-content;
+}
+.dot{
+width:10px;height:10px;border-radius:50%;
+background:var(--accent);
+box-shadow:0 0 18px rgba(77,226,255,.65);
+}
+h2{
+margin:14px 0 8px;
+font-size: clamp(24px, 3.2vw, 40px);
+line-height:1.15;
+letter-spacing:.2px;
+}
+.meta{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+align-items:center;
+color:rgba(255,255,255,.62);
+font-size:12.5px;
+margin-top:8px;
+}
+.pill{
+padding:4px 8px;
+border-radius:999px;
+font-size:12px;
+border:1px solid rgba(255,255,255,.14);
+background:rgba(255,255,255,.06);
+color:#dbe7ff;
+}
+.pill.accent{
+border-color:rgba(77,226,255,.28);
+background:rgba(77,226,255,.08);
+color:#e6fbff;
+}
+
+.body{
+padding:14px 22px 20px;
+border-top:1px solid rgba(255,255,255,.08);
+background: rgba(0,0,0,.12);
+}
+.excerpt{
+margin:0 0 14px;
+color:var(--muted);
+line-height:1.8;
+font-size: 15px;
+max-width: 80ch;
+}
+
+.content{
+color: rgba(233, 238, 247, .94);
+line-height:1.95;
+font-size: 16px;
+max-width: 80ch;
+}
+.content h3{
+margin:18px 0 10px;
+font-size: 18px;
+letter-spacing:.2px;
+}
+.content p{
+margin: 10px 0;
+color: rgba(233, 238, 247, .92);
+}
+.content ul{
+margin: 10px 0 10px 18px;
+color: rgba(233, 238, 247, .92);
+}
+.content li{ margin: 6px 0; }
+
+.content blockquote{
+margin: 12px 0;
+padding: 12px 14px;
+border-left: 3px solid rgba(77,226,255,.55);
+border-radius: 12px;
+background: rgba(77,226,255,.06);
+color: rgba(233,238,247,.92);
+}
+.content .mono{
+font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+font-size: 14px;
+background: rgba(255,255,255,.06);
+border: 1px solid rgba(255,255,255,.10);
+padding: 2px 6px;
+border-radius: 8px;
+}
+
+.actions{
+margin-top:16px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+align-items:center;
+justify-content:space-between;
+}
+.btn{
+appearance:none;
+border:1px solid rgba(255,255,255,.14);
+background:rgba(255,255,255,.06);
+color:var(--text);
+padding:10px 14px;
+border-radius:12px;
+text-decoration:none;
+font-weight:750;
+letter-spacing:.2px;
+transition: transform .12s ease, background .12s ease, border-color .12s ease;
+display:inline-flex;
+align-items:center;
+gap:10px;
+font-size: 13px;
+}
+.btn:hover{
+transform: translateY(-1px);
+background:rgba(255,255,255,.09);
+border-color:rgba(255,255,255,.22);
+}
+.btn.primary{
+background:rgba(77,226,255,.12);
+border-color:rgba(77,226,255,.35);
+color:#eaffff;
+}
+
+.error{
+margin-top:14px;
+padding:16px;
+border:1px dashed rgba(255,255,255,.16);
+border-radius: 16px;
+background: rgba(0,0,0,.10);
+color:rgba(255,255,255,.60);
+line-height:1.7;
+font-size: 14px;
+}
+
+footer{
+margin:18px 0 10px;
+color: rgba(255,255,255,.42);
+font-size:12.5px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+<div class="stars" aria-hidden="true"></div>
+
+<div class="container">
+<header>
+<div class="brand">
+<div class="logo" aria-label="ARC-方舟 Logo">
+<img src="../assets/img/brand/logo.png" alt="ARC-方舟" onerror="this.style.display='none';" />
+</div>
+<div>
+<h1 id="siteTitle">ARC-方舟｜文章</h1>
+<p id="siteTagline">科普對戲文章閱讀頁</p>
+</div>
+</div>
+
+<nav aria-label="primary navigation">
+<a class="navlink" href="../index.html">首頁</a>
+<a class="navlink" href="./team.html">管理團隊</a>
+<a class="navlink" href="./articles.html">科普對戲文章</a>
+</nav>
+</header>
+
+<section class="shell" aria-label="article">
+<div class="hero">
+<div class="cover">
+<img id="coverImg" src="../assets/img/articles/a-0001-cover.jpg" alt="cover"
+onerror="this.style.opacity='.35';" />
+</div>
+
+<div class="head">
+<div class="kicker"><span class="dot" aria-hidden="true"></span> 科普對戲文章</div>
+<h2 id="title">載入中…</h2>
+<div class="meta" id="meta"></div>
+</div>
+
+<div class="body">
+<p class="excerpt" id="excerpt"></p>
+<div class="content" id="content"></div>
+
+<div class="actions">
+<a class="btn" href="./articles.html">返回文章列表</a>
+<a class="btn primary" id="copyLink" href="#">複製本文連結</a>
+</div>
+
+<div id="error" class="error" style="display:none;"></div>
+</div>
+</div>
+</section>
+
+<footer>
+© <span id="year"></span> ARC-方舟｜ARC-01 · 文章閱讀
+</footer>
+</div>
+
+<script>
+(function () {
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
+
+const qs = new URLSearchParams(location.search);
+const id = qs.get("id");
+
+const titleEl = document.getElementById("title");
+const excerptEl = document.getElementById("excerpt");
+const contentEl = document.getElementById("content");
+const metaEl = document.getElementById("meta");
+const coverEl = document.getElementById("coverImg");
+const errorEl = document.getElementById("error");
+const copyBtn = document.getElementById("copyLink");
+
+const escapeHtml = (s) =>
+(s || "").toString()
+.replaceAll("&", "&amp;")
+.replaceAll("<", "&lt;")
+.replaceAll(">", "&gt;")
+.replaceAll('"', "&quot;")
+.replaceAll("'", "&#039;");
+
+function setError(msg) {
+if (errorEl) {
+errorEl.style.display = "block";
+errorEl.innerHTML = msg;
+}
+}
+
+function renderMeta(a) {
+if (!metaEl) return;
+const pills = [];
+
+if (a.date) pills.push(`<span class="pill">${escapeHtml(a.date)}</span>`);
+if (a.author) pills.push(`<span class="pill">${escapeHtml(a.author)}</span>`);
+if (Array.isArray(a.tags)) {
+a.tags.slice(0, 6).forEach(t => pills.push(`<span class="pill accent">${escapeHtml(t)}</span>`));
+}
+
+metaEl.innerHTML = pills.join("");
+}
+
+function renderContent(article) {
+// Article content format:
+// - article.content can be:
+// 1) array of blocks: [{type:"p", text:"..."}, {type:"h3", text:"..."}, {type:"ul", items:[...]} ...]
+// 2) plain string (treated as paragraph)
+const blocks = article.content;
+
+if (!contentEl) return;
+
+if (Array.isArray(blocks)) {
+contentEl.innerHTML = blocks.map(b => {
+const type = (b.type || "p").toLowerCase();
+if (type === "h3") return `<h3>${escapeHtml(b.text || "")}</h3>`;
+if (type === "blockquote") return `<blockquote>${escapeHtml(b.text || "")}</blockquote>`;
+if (type === "ul") {
+const items = Array.isArray(b.items) ? b.items : [];
+return `<ul>${items.map(i => `<li>${escapeHtml(i)}</li>`).join("")}</ul>`;
+}
+if (type === "p") return `<p>${escapeHtml(b.text || "")}</p>`;
+// fallback
+return `<p>${escapeHtml(b.text || "")}</p>`;
+}).join("");
+} else if (typeof blocks === "string") {
+contentEl.innerHTML = `<p>${escapeHtml(blocks)}</p>`;
+} else {
+contentEl.innerHTML = "";
+}
+}
+
+// Optional: load site.json for header
+fetch("../data/site.json", { cache: "no-store" })
+.then(r => r.ok ? r.json() : null)
+.then(site => {
+if (!site) return;
+const t = document.getElementById("siteTitle");
+const s = document.getElementById("siteTagline");
+if (t && site.title) t.textContent = `${site.title}｜文章`;
+if (s && site.tagline) s.textContent = site.tagline;
+})
+.catch(() => {});
+
+if (!id) {
+if (titleEl) titleEl.textContent = "找不到文章 ID";
+setError(`未提供文章 ID。請從 <a class="btn" href="./articles.html" style="display:inline-flex; padding:6px 10px; margin-top:8px;">文章列表</a> 進入。`);
+return;
+}
+
+// 1) Find article metadata in articles.json (cover/excerpt/title/tags)
+fetch("../data/articles.json", { cache: "no-store" })
+.then(r => r.ok ? r.json() : Promise.reject())
+.then(data => {
+const list = Array.isArray(data) ? data : (Array.isArray(data.articles) ? data.articles : []);
+const meta = list.find(a => a.id === id) || null;
+if (!meta) throw new Error("META_NOT_FOUND");
+
+// Apply meta first
+if (titleEl) titleEl.textContent = meta.title || "未命名文章";
+document.title = `${meta.title || "文章"}｜ARC-方舟`;
+if (excerptEl) excerptEl.textContent = meta.excerpt || "";
+if (coverEl && meta.cover) coverEl.src = meta.cover;
+renderMeta(meta);
+
+// 2) Load full content from content/articles/{id}.json
+return fetch(`../content/articles/${encodeURIComponent(id)}.json`, { cache: "no-store" })
+.then(r => r.ok ? r.json() : Promise.reject(new Error("CONTENT_NOT_FOUND")))
+.then(full => {
+// Merge: full can override meta fields
+const article = Object.assign({}, meta, full);
+if (article.title && titleEl) titleEl.textContent = article.title;
+if (article.cover && coverEl) coverEl.src = article.cover;
+if (article.excerpt && excerptEl) excerptEl.textContent = article.excerpt;
+renderMeta(article);
+renderContent(article);
+});
+})
+.catch(err => {
+if (titleEl) titleEl.textContent = "文章載入失敗";
+if (err && err.message === "META_NOT_FOUND") {
+setError(`找不到文章索引：<span class="mono">${escapeHtml(id)}</span><br />
+請確認 <span class="mono">/data/articles.json</span> 內包含此文章 ID。`);
+} else if (err && err.message === "CONTENT_NOT_FOUND") {
+setError(`已找到文章索引，但找不到全文檔案：<span class="mono">/content/articles/${escapeHtml(id)}.json</span><br />
+請新增對應的全文 JSON。`);
+} else {
+setError(`載入失敗。請稍後重試，或回到 <a class="btn" href="./articles.html" style="display:inline-flex; padding:6px 10px; margin-top:8px;">文章列表</a>。`);
+}
+});
+
+if (copyBtn) {
+copyBtn.addEventListener("click", async (e) => {
+e.preventDefault();
+try {
+await navigator.clipboard.writeText(location.href);
+copyBtn.textContent = "已複製";
+setTimeout(() => (copyBtn.textContent = "複製本文連結"), 1200);
+} catch {
+// Fallback
+const tmp = document.createElement("input");
+tmp.value = location.href;
+document.body.appendChild(tmp);
+tmp.select();
+document.execCommand("copy");
+document.body.removeChild(tmp);
+copyBtn.textContent = "已複製";
+setTimeout(() => (copyBtn.textContent = "複製本文連結"), 1200);
+}
+});
+}
+})();
+</script>
+</body>
+</html>

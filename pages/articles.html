@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>科普對戲文章｜ARC-方舟</title>
+<meta name="description" content="ARC-方舟科普對戲文章：新手指南、世界觀科普、對戲技巧與範例。" />
+
+<link rel="stylesheet" href="../assets/css/styles.css" />
+
+<style>
+/* Fallback styling (works even if styles.css is minimal) */
+:root{
+--bg:#05070d;
+--panel:#0b1020;
+--text:#e9eef7;
+--muted:#a9b3c7;
+--accent:#4de2ff;
+--accent2:#ffd36a;
+--border:rgba(255,255,255,.10);
+radius:12px;
+05);
+08);
+border-color:rgba(255,255,255,.22);
+}
+06);
+radius:50%;
+max-width: 78ch;
+font-size: 15px;
+}
+
+.tools{
+margin-top:14px;
+border:1px solid rgba(255,255,255,.10);
+border-radius: 18px;
+background: rgba(0,0,0,.18);
+padding:16px;
+box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+.row{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+align-items:center;
+justify-content:space-between;
+}
+.search{
+display:flex;
+gap:10px;
+align-items:center;
+width:min(540px, 100%);
+}
+input[type="search"]{
+width:100%;
+padding:10px 12px;
+border-radius: 12px;
+border:1px solid rgba(255,255,255,.14);
+background: rgba(255,255,255,.06);
+color:var(--text);
+outline:none;
+}
+.hint{
+color:rgba(255,255,255,.55);
+font-size:12.5px;
+}
+
+.chips{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-top:12px;
+}
+.chip{
+cursor:pointer;
+user-select:none;
+padding:7px 10px;
+border-radius:999px;
+font-size:12.5px;
+border:1px solid rgba(255,255,255,.14);
+background:rgba(255,255,255,.06);
+color:#dbe7ff;
+}
+.chip.active{
+border-color:rgba(77,226,255,.38);
+background:rgba(77,226,255,.12);
+color:#eaffff;
+}
+
+.list{
+margin-top:14px;
+display:grid;
+grid-template-columns: repeat(12, 1fr);
+gap:14px;
+}
+.card{
+grid-column: span 6;
+border:1px solid rgba(255,255,255,.10);
+border-radius: 18px;
+background: rgba(0,0,0,.18);
+overflow:hidden;
+box-shadow: 0 10px 40px rgba(0,0,0,.35);
+display:flex;
+min-height: 160px;
+}
+@media (max-width: 980px){
+.card{ grid-column: span 12; }
+}
+
+.cover{
+width: 160px;
+border-right:1px solid rgba(255,255,255,.08);
+background: rgba(255,255,255,.05);
+position:relative;
+overflow:hidden;
+flex: 0 0 auto;
+}
+.cover img{
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:.92;
+}
+.content{
+padding:14px 14px 12px;
+display:flex;
+flex-direction:column;
+gap:8px;
+min-width:0;
+flex: 1 1 auto;
+}
+.title{
+margin:0;
+font-size:16px;
+font-weight:850;
+letter-spacing:.2px;
+line-height:1.25;
+}
+.meta{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+align-items:center;
+color:rgba(255,255,255,.62);
+font-size:12.5px;
+}
+.pill{
+padding:4px 8px;
+border-radius:999px;
+font-size:12px;
+border:1px solid rgba(255,255,255,.14);
+background:rgba(255,255,255,.06);
+color:#dbe7ff;
+}
+.pill.accent{
+border-color:rgba(77,226,255,.28);
+background:rgba(77,226,255,.08);
+color:#e6fbff;
+}
+.excerpt{
+margin:0;
+color:var(--muted);
+line-height:1.65;
+font-size:13.5px;
+display:-webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow:hidden;
+}
+.actions{
+margin-top:auto;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+align-items:center;
+justify-content:space-between;
+padding-top:6px;
+}
+.read{
+text-decoration:none;
+color:var(--text);
+font-weight:800;
+padding:8px 10px;
+border-radius: 12px;
+border:1px solid rgba(255,255,255,.12);
+background:rgba(255,255,255,.05);
+font-size:12.5px;
+}
+.read:hover{
+background:rgba(255,255,255,.08);
+border-color:rgba(255,255,255,.22);
+}
+
+.empty{
+margin-top:14px;
+padding:18px;
+border:1px dashed rgba(255,255,255,.16);
+border-radius: 16px;
+background: rgba(0,0,0,.10);
+color:rgba(255,255,255,.60);
+line-height:1.7;
+font-size: 14px;
+}
+
+footer{
+margin:18px 0 10px;
+color: rgba(255,255,255,.42);
+font-size:12.5px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+<div class="stars" aria-hidden="true"></div>
+
+<div class="container">
+<header>
+<div class="brand">
+<div class="logo" aria-label="ARC-方舟 Logo">
+<img src="../assets/img/brand/logo.png" alt="ARC-方舟" onerror="this.style.display='none';" />
+</div>
+<div>
+<h1 id="siteTitle">ARC-方舟｜科普對戲文章</h1>
+<p id="siteTagline">新手指南 · 對戲技巧 · 世界觀科普</p>
+</div>
+</div>
+
+<nav aria-label="primary navigation">
+<a class="navlink" href="../index.html">首頁</a>
+<a class="navlink" href="./team.html">管理團隊</a>
+<a class="navlink" href="./articles.html">科普對戲文章</a>
+</nav>
+</header>
+
+<section class="page-title">
+<div class="badge"><span class="dot" aria-hidden="true"></span> 科普 / 教學 / 對戲</div>
+<h2>科普對戲文章</h2>
+<p>
+這裡收錄 ARC-方舟的對戲教學、世界觀科普與範例文章。
+你可以使用搜尋與標籤篩選，快速找到你需要的內容。
+</p>
+</section>
+
+<section class="tools" aria-label="filters">
+<div class="row">
+<div class="search">
+<input id="search" type="search" placeholder="搜尋：標題 / 摘要 / 標籤" autocomplete="off" />
+</div>
+<div class="hint" id="countHint">載入中…</div>
+</div>
+<div class="chips" id="chips" aria-label="tag filters"></div>
+</section>
+
+<section id="list" class="list" aria-label="article list"></section>
+<div id="empty" class="empty" style="display:none;">
+目前沒有可顯示的文章。<br />
+請確認 <span style="font-family:ui-monospace,monospace;">/data/articles.json</span> 存在且格式正確，
+或稍後再試。
+</div>
+
+<footer>
+© <span id="year"></span> ARC-方舟｜ARC-01 · 科普對戲文章
+</footer>
+</div>
+
+<script>
+(function () {
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
+
+const listEl = document.getElementById("list");
+const emptyEl = document.getElementById("empty");
+const searchEl = document.getElementById("search");
+const chipsEl = document.getElementById("chips");
+const hintEl = document.getElementById("countHint");
+
+const normalize = (s) => (s || "").toString().toLowerCase().trim();
+const escapeHtml = (s) =>
+(s || "").toString()
+.replaceAll("&", "&amp;")
+.replaceAll("<", "&lt;")
+.replaceAll(">", "&gt;")
+.replaceAll('"', "&quot;")
+.replaceAll("'", "&#039;");
+
+// Optional: load site.json for header title/tagline
+fetch("../data/site.json", { cache: "no-store" })
+.then(r => r.ok ? r.json() : null)
+.then(site => {
+if (!site) return;
+const t = document.getElementById("siteTitle");
+const s = document.getElementById("siteTagline");
+if (t && site.title) t.textContent = `${site.title}｜科普對戲文章`;
+if (s && site.tagline) s.textContent = site.tagline;
+})
+.catch(() => {});
+
+let original = [];
+let activeTag = "全部";
+
+function buildChips(allTags) {
+if (!chipsEl) return;
+chipsEl.innerHTML = "";
+
+const tags = ["全部", ...allTags];
+tags.forEach(tag => {
+const btn = document.createElement("div");
+btn.className = "chip" + (tag === activeTag ? " active" : "");
+btn.textContent = tag;
+btn.addEventListener("click", () => {
+activeTag = tag;
+// Update active class
+[...chipsEl.children].forEach(c => c.classList.remove("active"));
+btn.classList.add("active");
+applyFilter();
+});
+chipsEl.appendChild(btn);
+});
+}
+
+function render(list) {
+if (!listEl) return;
+listEl.innerHTML = "";
+
+if (!list || !list.length) {
+if (emptyEl) emptyEl.style.display = "block";
+if (hintEl) hintEl.textContent = "0 篇";
+return;
+}
+if (emptyEl) emptyEl.style.display = "none";
+if (hintEl) hintEl.textContent = `${list.length} 篇`;
+
+const frag = document.createDocumentFragment();
+
+list.forEach(a => {
+const id = escapeHtml(a.id || "");
+const title = escapeHtml(a.title || "未命名文章");
+const excerpt = escapeHtml(a.excerpt || "");
+const cover = escapeHtml(a.cover || "../assets/img/articles/a-0001-cover.jpg");
+const date = escapeHtml(a.date || "");
+const tags = Array.isArray(a.tags) ? a.tags : [];
+
+const card = document.createElement("article");
+card.className = "card";
+card.innerHTML = `
+<div class="cover">
+<img src="${cover}" alt="${title}" onerror="this.style.opacity='.35';" />
+</div>
+<div class="content">
+<h3 class="title">${title}</h3>
+<div class="meta">
+${date ? `<span class="pill">${date}</span>` : ``}
+${tags.slice(0,2).map(t => `<span class="pill accent">${escapeHtml(t)}</span>`).join("")}
+</div>
+<p class="excerpt">${excerpt || "（尚未填寫摘要）"}</p>
+<div class="actions">
+<a class="read" href="./article.html?id=${encodeURIComponent(id)}">閱讀全文</a>
+<span class="hint">ID：<span style="font-family:ui-monospace,monospace;">${id || "N/A"}</span></span>
+</div>
+</div>
+`;
+frag.appendChild(card);
+});
+
+listEl.appendChild(frag);
+}
+
+function applyFilter() {
+const q = normalize(searchEl ? searchEl.value : "");
+
+let filtered = original;
+
+if (activeTag && activeTag !== "全部") {
+filtered = filtered.filter(a => (Array.isArray(a.tags) ? a.tags : []).includes(activeTag));
+}
+
+if (q) {
+filtered = filtered.filter(a => {
+const hay = [
+a.title, a.excerpt,
+...(Array.isArray(a.tags) ? a.tags : [])
+].map(normalize).join(" ");
+return hay.includes(q);
+});
+}
+
+render(filtered);
+}
+
+fetch("../data/articles.json", { cache: "no-store" })
+.then(r => r.ok ? r.json() : Promise.reject())
+.then(data => {
+// support either array or {articles:[]}
+original = Array.isArray(data) ? data : (Array.isArray(data.articles) ? data.articles : []);
+
+// tags
+const tagSet = new Set();
+original.forEach(a => (Array.isArray(a.tags) ? a.tags : []).forEach(t => tagSet.add(t)));
+buildChips([...tagSet].sort((a,b)=>a.localeCompare(b, "zh-Hant")));
+
+render(original);
+
+if (searchEl) searchEl.addEventListener("input", applyFilter);
+})
+.catch(() => {
+render([]);
+if (hintEl) hintEl.textContent = "載入失敗（articles.json）";
+});
+})();
+</script>
+</body>
+</html>

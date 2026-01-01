@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>管理團隊｜ARC-方舟</title>
+<meta name="description" content="ARC-方舟管理團隊：每位管理的頭像、職務與簡短自我介紹。" />
+
+<link rel="stylesheet" href="../assets/css/styles.css" />
+
+<style>
+/* Fallback styling (works even if styles.css is minimal) */
+:root{
+--bg:#05070d;
+--panel:#0b1020;
+--text:#e9eef7;
+--muted:#a9b3c7;
+--accent:#4de2ff;
+--border:rgba(255,255,255,.10);
+radius:12px;
+05);
+08);
+border-color:rgba(255,255,255,.22);
+}
+
+.page-title{
+margin:18px 0 0;
+border:1px solid var(--border);
+border-radius: 22px;
+background: linear-gradient(180deg, rgba(11,16,32,.70), rgba(11,16,32,.46));
+box-shadow: var(--shadow);
+padding:22px;
+}
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:8px 12px;
+border:1px solid rgba(77,226,255,.25);
+border-radius:999px;
+color:var(--accent);
+background:rgba(77,226,255,.06);
+font-weight:700;
+letter-spacing:.3px;
+width:max-content;
+}
+.dot{
+width:10px;height:10px;border-radius:50%;
+background:var(--accent);
+box-shadow:0 0 18px rgba(77,226,255,.65);
+}
+.page-title h2{
+margin:12px 0 8px;
+font-size: clamp(24px, 3.0vw, 36px);
+line-height:1.15;
+}
+.page-title p{
+margin:0;
+color:var(--muted);
+line-height:1.7;
+max-width: 70ch;
+font-size: 15px;
+}
+
+.grid{
+margin-top:14px;
+display:grid;
+grid-template-columns: repeat(12, 1fr);
+gap:14px;
+}
+.span12{ grid-column: span 12; }
+.card{
+border:1px solid rgba(255,255,255,.10);
+border-radius: 18px;
+background: rgba(0,0,0,.18);
+padding:16px;
+box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+align-items:center;
+justify-content:space-between;
+}
+.search{
+display:flex;
+gap:10px;
+align-items:center;
+width:min(520px, 100%);
+}
+input[type="search"]{
+width:100%;
+padding:10px 12px;
+border-radius: 12px;
+border:1px solid rgba(255,255,255,.14);
+background: rgba(255,255,255,.06);
+color:var(--text);
+outline:none;
+}
+.hint{
+color:rgba(255,255,255,.55);
+font-size:12.5px;
+}
+
+.team-grid{
+margin-top:14px;
+display:grid;
+grid-template-columns: repeat(12, 1fr);
+gap:14px;
+}
+.member{
+grid-column: span 4;
+border:1px solid rgba(255,255,255,.10);
+border-radius: 18px;
+background: rgba(0,0,0,.18);
+overflow:hidden;
+box-shadow: 0 10px 40px rgba(0,0,0,.35);
+display:flex;
+flex-direction:column;
+min-height: 220px;
+}
+@media (max-width: 980px){
+.member{ grid-column: span 6; }
+}
+@media (max-width: 620px){
+.member{ grid-column: span 12; }
+}
+
+.member-top{
+display:flex;
+gap:12px;
+padding:14px;
+align-items:center;
+}
+.avatar{
+width:64px;height:64px;border-radius: 16px;
+border:1px solid rgba(255,255,255,.12);
+background: rgba(255,255,255,.06);
+overflow:hidden;
+flex:0 0 auto;
+}
+.avatar img{ width:100%; height:100%; object-fit:cover; }
+.meta{
+display:grid;
+gap:4px;
+min-width:0;
+}
+.name{
+font-weight:850;
+letter-spacing:.2px;
+font-size:16px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+.role{
+color:#dbe7ff;
+font-size:12.5px;
+display:inline-flex;
+align-items:center;
+gap:8px;
+flex-wrap:wrap;
+}
+.pill{
+padding:4px 8px;
+border-radius:999px;
+font-size:12px;
+border:1px solid rgba(77,226,255,.28);
+background:rgba(77,226,255,.08);
+color:#e6fbff;
+}
+.pill.alt{
+border-color:rgba(255,211,106,.28);
+background:rgba(255,211,106,.08);
+color:#fff3d3;
+}
+
+.bio{
+padding:0 14px 14px;
+color:var(--muted);
+line-height:1.65;
+font-size: 13.5px;
+margin-top:-2px;
+}
+
+.links{
+margin-top:auto;
+padding:12px 14px 14px;
+border-top:1px solid rgba(255,255,255,.08);
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+}
+.link{
+text-decoration:none;
+color:var(--text);
+font-weight:700;
+padding:7px 10px;
+border-radius: 12px;
+border:1px solid rgba(255,255,255,.12);
+background:rgba(255,255,255,.05);
+font-size: 12.5px;
+}
+.link:hover{
+background:rgba(255,255,255,.08);
+border-color:rgba(255,255,255,.22);
+}
+
+.empty{
+padding:18px;
+border:1px dashed rgba(255,255,255,.16);
+border-radius: 16px;
+background: rgba(0,0,0,.10);
+color:rgba(255,255,255,.60);
+line-height:1.7;
+font-size: 14px;
+}
+
+footer{
+margin:18px 0 10px;
+color: rgba(255,255,255,.42);
+font-size:12.5px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+<div class="stars" aria-hidden="true"></div>
+
+<div class="container">
+<header>
+<div class="brand">
+<div class="logo" aria-label="ARC-方舟 Logo">
+<img src="../assets/img/brand/logo.png" alt="ARC-方舟" onerror="this.style.display='none';" />
+</div>
+<div>
+<h1 id="siteTitle">ARC-方舟｜管理團隊</h1>
+<p id="siteTagline">以秩序守住航道，以敘事點亮艙段。</p>
+</div>
+</div>
+
+<nav aria-label="primary navigation">
+<a class="navlink" href="../index.html">首頁</a>
+<a class="navlink" href="./team.html">管理團隊</a>
+<a class="navlink" href="./articles.html">科普對戲文章</a>
+</nav>
+</header>
+
+<section class="page-title">
+<div class="badge"><span class="dot" aria-hidden="true"></span> 組織架構</div>
+<h2>管理團隊</h2>
+<p>
+這裡列出 ARC-方舟的管理與 GM 團隊。你可以依職務或關鍵字快速搜尋。
+若你想加入管理團隊，請在 Discord 內聯絡 Owner/GM。
+</p>
+</section>
+
+<section class="grid" aria-label="tools">
+<div class="card span12">
+<div class="filters">
+<div class="search">
+<input id="search" type="search" placeholder="搜尋：名字 / 職務 / 簡介關鍵字" autocomplete="off" />
+</div>
+<div class="hint" id="countHint">載入中…</div>
+</div>
+</div>
+
+<div class="span12">
+<div id="teamGrid" class="team-grid" aria-label="team members"></div>
+<div id="empty" class="empty" style="display:none;">
+目前沒有可顯示的團隊資料。<br />
+請確認 <span style="font-family:ui-monospace,monospace;">/data/team.json</span> 存在且格式正確，
+或稍後再試。
+</div>
+</div>
+</section>
+
+<footer>
+© <span id="year"></span> ARC-方舟｜ARC-01 · 管理團隊
+</footer>
+</div>
+
+<script>
+(function () {
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
+
+const grid = document.getElementById("teamGrid");
+const empty = document.getElementById("empty");
+const search = document.getElementById("search");
+const hint = document.getElementById("countHint");
+
+const normalize = (s) => (s || "").toString().toLowerCase().trim();
+const escapeHtml = (s) =>
+(s || "").toString()
+.replaceAll("&", "&amp;")
+.replaceAll("<", "&lt;")
+.replaceAll(">", "&gt;")
+.replaceAll('"', "&quot;")
+.replaceAll("'", "&#039;");
+
+function render(list) {
+if (!grid) return;
+grid.innerHTML = "";
+
+if (!list || !list.length) {
+if (empty) empty.style.display = "block";
+if (hint) hint.textContent = "0 位成員";
+return;
+}
+if (empty) empty.style.display = "none";
+if (hint) hint.textContent = `${list.length} 位成員`;
+
+const frag = document.createDocumentFragment();
+
+list.forEach(m => {
+const name = escapeHtml(m.name || "未命名");
+const role = escapeHtml(m.role || "—");
+const tags = Array.isArray(m.tags) ? m.tags : [];
+const bio = escapeHtml(m.bio || "");
+const avatar = escapeHtml(m.avatar || "../assets/img/team/gm.png");
+const links = Array.isArray(m.links) ? m.links : [];
+
+const el = document.createElement("article");
+el.className = "member";
+el.innerHTML = `
+<div class="member-top">
+<div class="avatar">
+<img src="${avatar}" alt="${name}" onerror="this.src='../assets/img/team/gm.png';" />
+</div>
+<div class="meta">
+<div class="name">${name}</div>
+<div class="role">
+<span>${role}</span>
+${tags.slice(0, 3).map((t, i) => {
+const klass = i % 2 === 0 ? "pill" : "pill alt";
+return `<span class="${klass}">${escapeHtml(t)}</span>`;
+}).join("")}
+</div>
+</div>
+</div>
+<div class="bio">${bio || "（尚未填寫簡介）"}</div>
+<div class="links">
+${links.slice(0, 3).map(l => {
+const label = escapeHtml(l.label || "連結");
+const url = escapeHtml(l.url || "#");
+const external = url.startsWith("http");
+return `<a class="link" href="${url}" ${external ? 'target="_blank" rel="noopener"' : ""}>${label}</a>`;
+}).join("")}
+</div>
+`;
+frag.appendChild(el);
+});
+
+grid.appendChild(frag);
+}
+
+let original = [];
+
+function applyFilter() {
+const q = normalize(search ? search.value : "");
+if (!q) return render(original);
+
+const filtered = original.filter(m => {
+const hay = [
+m.name, m.role, m.bio,
+...(Array.isArray(m.tags) ? m.tags : [])
+].map(normalize).join(" ");
+return hay.includes(q);
+});
+render(filtered);
+}
+
+// Load optional site.json for header title/tagline
+fetch("../data/site.json", { cache: "no-store" })
+.then(r => r.ok ? r.json() : null)
+.then(site => {
+if (!site) return;
+const t = document.getElementById("siteTitle");
+const s = document.getElementById("siteTagline");
+if (t && site.title) t.textContent = `${site.title}｜管理團隊`;
+if (s && site.tagline) s.textContent = site.tagline;
+})
+.catch(() => {});
+
+// Load team data
+fetch("../data/team.json", { cache: "no-store" })
+.then(r => r.ok ? r.json() : Promise.reject())
+.then(data => {
+original = Array.isArray(data) ? data : (Array.isArray(data.members) ? data.members : []);
+render(original);
+if (search) search.addEventListener("input", applyFilter);
+})
+.catch(() => {
+render([]);
+if (hint) hint.textContent = "載入失敗（team.json）";
+});
+})();
+</script>
+</body>
+</html>
