@@ -1,0 +1,155 @@
+/* ==========================================================================
+ARC-方舟｜team.css
+- 作用：管理團隊頁（team.html）專用樣式
+- 依賴：assets/css/styles.css（全站基底）
+========================================================================== */
+
+.team-page {
+/* reserved for page-level hooks */
+}
+
+/* Page title block (optional hook if你後面把內嵌CSS移除) */
+.team-hero {
+border: 1px solid var(--border);
+border-radius: var(--radius-lg);
+background: linear-gradient(180deg, rgba(11,16,32,.70), rgba(11,16,32,.46));
+box-shadow: var(--shadow-lg);
+padding: var(--pad-lg);
+}
+
+/* Filters */
+.team-filters {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-between;
+}
+
+.team-search {
+display: flex;
+gap: 10px;
+align-items: center;
+width: min(540px, 100%);
+}
+
+/* Grid */
+.team-grid {
+display: grid;
+grid-template-columns: repeat(12, 1fr);
+gap: 14px;
+}
+
+/* Member card */
+.team-member {
+grid-column: span 4;
+border: 1px solid rgba(255,255,255,.10);
+border-radius: var(--radius-md);
+background: rgba(0,0,0,.18);
+overflow: hidden;
+box-shadow: var(--shadow-md);
+display: flex;
+flex-direction: column;
+min-height: 220px;
+}
+
+@media (max-width: 980px) {
+.team-member { grid-column: span 6; }
+}
+
+@media (max-width: 620px) {
+.team-member { grid-column: span 12; }
+}
+
+.team-member__top {
+display: flex;
+gap: 12px;
+padding: 14px;
+align-items: center;
+}
+
+.team-member__avatar {
+width: 64px;
+height: 64px;
+border-radius: 16px;
+border: 1px solid rgba(255,255,255,.12);
+background: rgba(255,255,255,.06);
+overflow: hidden;
+flex: 0 0 auto;
+}
+
+.team-member__avatar img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.team-member__meta {
+display: grid;
+gap: 4px;
+min-width: 0;
+}
+
+.team-member__name {
+font-weight: 850;
+letter-spacing: .2px;
+font-size: 16px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.team-member__role {
+color: #dbe7ff;
+font-size: 12.5px;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+flex-wrap: wrap;
+}
+
+.team-member__bio {
+padding: 0 14px 14px;
+color: var(--muted);
+line-height: 1.65;
+font-size: 13.5px;
+margin-top: -2px;
+}
+
+/* Links */
+.team-member__links {
+margin-top: auto;
+padding: 12px 14px 14px;
+border-top: 1px solid rgba(255,255,255,.08);
+display: flex;
+gap: 8px;
+flex-wrap: wrap;
+}
+
+.team-link {
+text-decoration: none;
+color: var(--text);
+font-weight: 700;
+padding: 7px 10px;
+border-radius: 12px;
+border: 1px solid rgba(255,255,255,.12);
+background: rgba(255,255,255,.05);
+font-size: 12.5px;
+transition: var(--trans);
+}
+
+.team-link:hover {
+background: rgba(255,255,255,.08);
+border-color: rgba(255,255,255,.22);
+}
+
+/* Empty state */
+.team-empty {
+padding: 18px;
+border: 1px dashed rgba(255,255,255,.16);
+border-radius: 16px;
+background: rgba(0,0,0,.10);
+color: rgba(255,255,255,.60);
+line-height: 1.7;
+font-size: 14px;
+}
