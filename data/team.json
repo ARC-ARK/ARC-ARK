@@ -25,7 +25,7 @@
 {
 "id": "mod-ops",
 "name": "亞絲拉爾",
-"role": "Moderator / 文書",
+"role": "GM / 文書",
 "tags": ["秩序", "申訴", "吉祥物"],
 "bio": "方舟吉祥物，擅長寫一切文案。",
 "avatar": "../assets/img/team/亞絲拉爾.png",
@@ -36,7 +36,7 @@
 {
 "id": "mod-lore",
 "name": "Rachel",
-"role": "Moderator / 對戲玩家",
+"role": "GM / 對戲玩家",
 "tags": ["群寵", "對戲", "可愛"],
 "bio": "很會對戲！是個可愛的女孩子，討人喜歡。",
 "avatar": "../assets/img/team/Rachel.png",
