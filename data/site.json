@@ -1,20 +1,18 @@
 {
-"title": "ARC-方舟｜ARC-01 方舟中斷航誌",
-"tagline": "星環航道 · 相位海 · 文字角色扮演伺服器",
-"heroTitle": "加入 ARC-01：方舟中斷航誌",
-"heroDesc": "以硬科幻為底座、允許超自然回聲現象的星艦群像文字 RP。你可以成為來自不同星球的船員，自由選擇職業、派系與故事走向，參與年度主線與多個行星副本。",
-"inviteUrl": "https://discord.gg/2BsC3VzEWs",
-"inviteQr": "assets/img/qr/invite.png",
-"social": {
-"discord": "https://discord.gg/2BsC3VzEWs"
-},
-"brand": {
-"logo": "assets/img/brand/logo.png",
-"logoGif": "assets/img/brand/logo.gif",
-"favicon": "assets/img/brand/favicon.png"
-},
-"seo": {
-"siteName": "ARC-方舟",
-"description": "ARC-方舟（ARC-01）官方網站：邀請連結與 QR、管理團隊、科普對戲文章。"
-}
+  "title": "ARC-01｜方舟中斷航誌",
+  "heroTitle": "加入 ARC-01｜方舟中斷航誌",
+  "inviteUrl": "https://discord.gg/2BsC3VzEWs",
+  "inviteQr": "assets/img/qr/invite.png",
+  "social": {
+    "discord": "https://discord.gg/2BsC3VzEWs"
+  },
+  "brand": {
+    "logo": "assets/img/brand/logo.png",
+    "logoGif": "assets/img/brand/logo.gif",
+    "favicon": "assets/img/brand/favicon.png"
+  },
+  "seo": {
+    "siteName": "ARC-方舟",
+    "description": "ARC-方舟（ARC-01）官方網站：邀請連結與 QR、管理團隊、科普對戲文章。"
+  }
 }
