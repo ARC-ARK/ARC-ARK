@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ARC-方舟｜官方網站</title>
+<meta name="description" content="ARC-方舟（ARC-01）官方網站：邀請連結與 QR、管理團隊、科普對戲文章。" />
+
+<!-- Global CSS (you can replace/extend later) -->
+<link rel="stylesheet" href="assets/css/styles.css" />
+
+<style>
+/* Fallback styling so index still looks professional before styles.css is completed */
+:root{
+--bg:#05070d;
+--panel:#0b1020;
+--text:#e9eef7;
+--muted:#a9b3c7;
+--accent:#4de2ff;
+--accent2:#ffd36a;
+--border:rgba(255,255,255,.10);
+--shadow: 0 18px 60px rgba(0,0,0,.55);
+--radius:18px;
+}
+html,body{height:100%}
+body{
+margin:0;
+font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+"PingFang TC","Noto Sans TC","Microsoft JhengHei", Arial, sans-serif;
+color:var(--text);
+background:
+radial-gradient(1200px 700px at 20% 15%, rgba(77,226,255,.15), transparent 55%),
+radial-gradient(900px 520px at 80% 25%, rgba(255,211,106,.10), transparent 50%),
+radial-gradient(1200px 800px at 50% 120%, rgba(110,140,255,.08), transparent 55%),
+var(--bg);
+}
+.stars{
+position:fixed; inset:0;
+background-image:
+radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.8) 50%, transparent 51%),
+radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,.55) 50%, transparent 51%),
+radial-gradient(1px 1px at 55% 40%, rgba(255,255,255,.65) 50%, transparent 51%),
+radial-gradient(2px 2px at 70% 15%, rgba(255,255,255,.50) 50%, transparent 51%),
+radial-gradient(1px 1px at 82% 62%, rgba(255,255,255,.70) 50%, transparent 51%),
+radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,.45) 50%, transparent 51%);
+opacity:.55;
+filter:blur(.2px);
+animation: drift 18s linear infinite;
+pointer-events:none;
+}
+@keyframes drift{
+from{ transform:translate3d(0,0,0) }
+to{ transform:translate3d(-40px, 20px, 0) }
+}
+
+.container{
+width:min(1120px, 100%);
+margin:0 auto;
+padding:24px;
+position:relative;
+z-index:1;
+}
+
+header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:14px;
+padding:14px 16px;
+border:1px solid var(--border);
+border-radius: var(--radius);
+background: linear-gradient(180deg, rgba(11,16,32,.78), rgba(11,16,32,.52));
+backdrop-filter: blur(10px);
+box-shadow: var(--shadow);
+}
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+min-width: 240px;
+}
+.logo{
+width:40px;height:40px;border-radius:12px;
+border:1px solid rgba(255,255,255,.14);
+background: rgba(255,255,255,.06);
+display:grid; place-items:center;
+overflow:hidden;
+}
+.logo img{ width:100%; height:100%; object-fit:cover; }
+.brand h1{
+margin:0;
+font-size:16px;
+letter-spacing:.2px;
+line-height:1.1;
+}
+.brand p{
+margin:4px 0 0;
+color:var(--muted);
+font-size:12.5px;
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+justify-content:flex-end;
+}
+.navlink{
+text-decoration:none;
+color:var(--text);
+font-weight:650;
+padding:9px 12px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.12);
+background:rgba(255,255,255,.05);
+transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.navlink:hover{
+transform: translateY(-1px);
+background:rgba(255,255,255,.08);
+border-color:rgba(255,255,255,.22);
+}
+
+.hero{
+margin-top:18px;
+border:1px solid var(--border);
+border-radius: 22px;
+overflow:hidden;
+background: linear-gradient(180deg, rgba(11,16,32,.70), rgba(11,16,32,.46));
+box-shadow: var(--shadow);
+display:grid;
+grid-template-columns: 1.2fr .8fr;
+gap:0;
+}
+@media (max-width: 980px){
+.hero{ grid-template-columns: 1fr; }
+}
+
+.hero-left{
+padding:28px;
+min-height: 320px;
+position:relative;
+}
+.kicker{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:8px 12px;
+border:1px solid rgba(77,226,255,.25);
+border-radius:999px;
+color:var(--accent);
+background:rgba(77,226,255,.06);
+font-weight:700;
+letter-spacing:.3px;
+width:max-content;
+}
+.dot{
+width:10px;height:10px;border-radius:50%;
+background:var(--accent);
+box-shadow:0 0 18px rgba(77,226,255,.65);
+}
+.hero-left h2{
+margin:14px 0 10px;
+font-size: clamp(26px, 3.4vw, 42px);
+line-height:1.12;
+letter-spacing:.2px;
+}
+.hero-left p{
+margin:10px 0;
+color:var(--muted);
+line-height:1.75;
+font-size: 15.5px;
+max-width: 60ch;
+}
+
+.cta{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:16px;
+}
+.btn{
+appearance:none;
+border:1px solid rgba(255,255,255,.14);
+background:rgba(255,255,255,.06);
+color:var(--text);
+padding:10px 14px;
+border-radius:12px;
+text-decoration:none;
+font-weight:750;
+letter-spacing:.2px;
+transition: transform .12s ease, background .12s ease, border-color .12s ease;
+display:inline-flex;
+align-items:center;
+gap:10px;
+}
+.btn:hover{
+transform: translateY(-1px);
+background:rgba(255,255,255,.09);
+border-color:rgba(255,255,255,.22);
+}
+.btn.primary{
+background:rgba(77,226,255,.12);
+border-color:rgba(77,226,255,.35);
+color:#eaffff;
+}
+.btn.primary:hover{
+background:rgba(77,226,255,.16);
+border-color:rgba(77,226,255,.45);
+}
+.btn.warn{
+background:rgba(255,211,106,.10);
+border-color:rgba(255,211,106,.35);
+color:#fff6dd;
+}
+
+.hero-right{
+border-left:1px solid rgba(255,255,255,.08);
+padding:18px;
+display:grid;
+gap:14px;
+align-content:start;
+position:relative;
+overflow:hidden;
+}
+@media (max-width: 980px){
+.hero-right{ border-left:none; border-top:1px solid rgba(255,255,255,.08); }
+}
+
+.card{
+border:1px solid rgba(255,255,255,.10);
+border-radius: 16px;
+background: rgba(0,0,0,.18);
+padding:14px;
+}
+.card h3{
+margin:0 0 8px;
+font-size:14px;
+letter-spacing:.2px;
+color:#eaf6ff;
+}
+.card p{
+margin:0;
+color:var(--muted);
+line-height:1.65;
+font-size: 13.5px;
+}
+
+.invite{
+display:grid;
+grid-template-columns: 1fr 120px;
+gap:12px;
+align-items:center;
+}
+@media (max-width: 980px){
+.invite{ grid-template-columns: 1fr 140px; }
+}
+.qr{
+width:120px;height:120px;
+border-radius: 14px;
+border:1px solid rgba(255,255,255,.10);
+background: rgba(255,255,255,.04);
+display:grid; place-items:center;
+overflow:hidden;
+}
+.qr img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.mono{
+font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+font-size: 12.5px;
+color:#d7e6ff;
+overflow-wrap:anywhere;
+}
+
+.grid{
+margin-top:18px;
+display:grid;
+grid-template-columns: repeat(12, 1fr);
+gap:14px;
+}
+.span6{ grid-column: span 6; }
+.span4{ grid-column: span 4; }
+.span8{ grid-column: span 8; }
+@media (max-width: 980px){
+.span6,.span4,.span8{ grid-column: span 12; }
+}
+
+.mini-list{
+display:grid;
+gap:10px;
+margin-top:10px;
+}
+.mini-item{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:10px 12px;
+border-radius: 14px;
+border:1px solid rgba(255,255,255,.10);
+background: rgba(0,0,0,.14);
+}
+.mini-item b{ font-size: 13.5px; }
+.tag{
+padding:4px 8px;
+border-radius:999px;
+font-size:12px;
+border:1px solid rgba(255,255,255,.14);
+background:rgba(255,255,255,.06);
+color:#dbe7ff;
+white-space:nowrap;
+}
+
+footer{
+margin:18px 0 10px;
+color: rgba(255,255,255,.42);
+font-size:12.5px;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+<div class="stars" aria-hidden="true"></div>
+
+<div class="container">
+
+<!-- Top bar -->
+<header>
+<div class="brand">
+<div class="logo" aria-label="ARC-方舟 Logo">
+<!-- Replace with your own logo (png/gif). If missing, this box remains. -->
+<img src="assets/img/brand/logo.png" alt="ARC-方舟" onerror="this.style.display='none';" />
+</div>
+<div>
+<h1 id="siteTitle">ARC-方舟｜ARC-01</h1>
+<p id="siteTagline">星環航道 · 相位海 · 文字角色扮演伺服器</p>
+</div>
+</div>
+
+<nav aria-label="primary navigation">
+<a class="navlink" href="./index.html">首頁</a>
+<a class="navlink" href="./pages/team.html">管理團隊</a>
+<a class="navlink" href="./pages/articles.html">科普對戲文章</a>
+</nav>
+</header>
+
+<!-- Hero -->
+<section class="hero" aria-label="hero">
+<div class="hero-left">
+<div class="kicker"><span class="dot" aria-hidden="true"></span> 航季入口已開放</div>
+<h2 id="heroTitle">加入 ARC-01：方舟中斷航誌</h2>
+<p id="heroDesc">
+以硬科幻為底座、允許超自然回聲現象的星艦群像文字 RP。
+你可以成為來自不同星球的船員，自由選擇職業、派系與故事走向，參與年度主線與多個行星副本。
+</p>
+
+<div class="cta">
+<a id="inviteBtn" class="btn primary" href="#" target="_blank" rel="noopener">立即登艦（邀請連結）</a>
+<a class="btn" href="./pages/team.html">查看管理團隊</a>
+<a class="btn warn" href="./pages/articles.html">讀科普對戲文章</a>
+</div>
+</div>
+
+<aside class="hero-right" aria-label="invite and quick info">
+<div class="card">
+<h3>登艦入口</h3>
+<div class="invite">
+<div>
+<p style="margin:0 0 8px;">邀請連結（可直接複製）：</p>
+<div class="mono" id="inviteLink">（尚未設定）</div>
+</div>
+<div class="qr" aria-label="invite qr">
+<img id="inviteQr" src="assets/img/qr/invite.png" alt="Discord 邀請 QR Code"
+onerror="this.style.opacity='.35'; this.alt='（尚未放置 QR）';" />
+</div>
+</div>
+</div>
+
+<div class="card">
+<h3>快速導覽</h3>
+<p>
+你可以先閱讀世界觀與對戲科普文章，或直接加入伺服器，從「今日任務」開始參與。
+</p>
+</div>
+
+<div class="card">
+<h3>艦務提示</h3>
+<p>
+本站為純靜態站點：內容由 JSON 驅動。管理團隊可透過更新 <span class="mono">/data</span> 與 <span class="mono">/content</span> 快速維護。
+</p>
+</div>
+</aside>
+</section>
+
+<!-- Feature grid -->
+<section class="grid" aria-label="features">
+<div class="card span6">
+<h3>主線（年度航季）</h3>
+<p>
+主線以「星環航道」與「相位海回聲」為核心張力：制度、資源、艦況與情報權限都會推動故事。
+年度航季中會穿插多個可反覆遊玩的行星副本。
+</p>
+<div class="mini-list">
+<div class="mini-item"><b>航道窗口</b><span class="tag">一年一航季</span></div>
+<div class="mini-item"><b>黑潮帶事件</b><span class="tag">高風險 / 高收益</span></div>
+<div class="mini-item"><b>回聲層</b><span class="tag">可疑巧合 / 靈異擾動</span></div>
+</div>
+</div>
+
+<div class="card span6">
+<h3>超能力（可選路線）</h3>
+<p>
+允許「自洽回聲體」等超自然存在，表現為資訊殘留、可互動回聲、機率剪切等。
+仍遵循硬科幻約束：不憑空造物，不無限開掛，並伴隨代價與後果。
+</p>
+<div class="mini-list">
+<div class="mini-item"><b>E0–E4 分級</b><span class="tag">主持人可控</span></div>
+<div class="mini-item"><b>代價與風險</b><span class="tag">生理 / 心理 / 政治</span></div>
+<div class="mini-item"><b>多重解讀</b><span class="tag">工程派 / 宗教派 / 政治派</span></div>
+</div>
+</div>
+
+<div class="card span8">
+<h3>角色自由度（群像）</h3>
+<p>
+你可以創作自己的星球文明與人設（亞人、史萊姆等皆可），通過後將被納入世界觀供後人選擇。
+你也可以選擇加入既有文明並從普通船員開始，逐步累積人脈、資源與敘事位置。
+</p>
+</div>
+
+<div class="card span4">
+<h3>站內入口</h3>
+<div class="mini-list">
+<div class="mini-item"><b>管理團隊</b><a class="tag" href="./pages/team.html">前往</a></div>
+<div class="mini-item"><b>科普對戲文章</b><a class="tag" href="./pages/articles.html">前往</a></div>
+<div class="mini-item"><b>回到 Discord</b><a class="tag" id="inviteTag" href="#" target="_blank" rel="noopener">邀請</a></div>
+</div>
+</div>
+</section>
+
+<footer>
+© <span id="year"></span> ARC-方舟｜ARC-01 · 本站為靜態站點（GitHub Pages）
+</footer>
+</div>
+
+<!-- Minimal data loading: if data/site.json exists, it will populate content -->
+<script>
+(function () {
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
+
+const safeSet = (id, text) => {
+const el = document.getElementById(id);
+if (el && typeof text === "string" && text.trim()) el.textContent = text.trim();
+};
+
+const safeHref = (id, href) => {
+const el = document.getElementById(id);
+if (el && typeof href === "string" && href.trim()) el.href = href.trim();
+};
+
+fetch("./data/site.json", { cache: "no-store" })
+.then(r => r.ok ? r.json() : null)
+.then(site => {
+if (!site) return;
+
+safeSet("siteTitle", site.title || "ARC-方舟｜ARC-01");
+safeSet("siteTagline", site.tagline || "星環航道 · 相位海 · 文字角色扮演伺服器");
+safeSet("heroTitle", site.heroTitle || "加入 ARC-01：方舟中斷航誌");
+safeSet("heroDesc", site.heroDesc || "");
+
+const invite = site.inviteUrl || "";
+if (invite) {
+safeSet("inviteLink", invite);
+safeHref("inviteBtn", invite);
+safeHref("inviteTag", invite);
+}
+
+// Optional: allow changing QR path via site.json
+const qr = site.inviteQr || "";
+if (qr) {
+const qrEl = document.getElementById("inviteQr");
+if (qrEl) qrEl.src = qr;
+}
+})
+.catch(() => {
+// No site.json yet — keep defaults
+});
+})();
+</script>
+</body>
+</html>

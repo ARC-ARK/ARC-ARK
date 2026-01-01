@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404｜方舟航道中斷</title>
+
+<!-- Optional: reuse your global stylesheet if it exists -->
+<link rel="stylesheet" href="assets/css/styles.css" />
+
+<style>
+/* Fallback styling so this page still looks good even before styles.css exists */
+:root{
+--bg:#05070d;
+--panel:#0b1020;
+--text:#e9eef7;
+--muted:#a9b3c7;
+--accent:#4de2ff;
+--accent2:#ffd36a;
+--border:rgba(255,255,255,.10);
+}
+html,body{height:100%}
+body{
+margin:0;
+font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+"PingFang TC","Noto Sans TC","Microsoft JhengHei", Arial, sans-serif;
+color:var(--text);
+background:
+radial-gradient(1200px 700px at 20% 15%, rgba(77,226,255,.15), transparent 55%),
+radial-gradient(900px 520px at 80% 25%, rgba(255,211,106,.10), transparent 50%),
+radial-gradient(1200px 800px at 50% 120%, rgba(110,140,255,.08), transparent 55%),
+var(--bg);
+overflow:hidden;
+}
+.stars{
+position:fixed; inset:0;
+background-image:
+radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.8) 50%, transparent 51%),
+radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,.55) 50%, transparent 51%),
+radial-gradient(1px 1px at 55% 40%, rgba(255,255,255,.65) 50%, transparent 51%),
+radial-gradient(2px 2px at 70% 15%, rgba(255,255,255,.50) 50%, transparent 51%),
+radial-gradient(1px 1px at 82% 62%, rgba(255,255,255,.70) 50%, transparent 51%),
+radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,.45) 50%, transparent 51%);
+opacity:.55;
+filter:blur(.2px);
+animation: drift 18s linear infinite;
+pointer-events:none;
+}
+@keyframes drift{
+from{ transform:translate3d(0,0,0) }
+to{ transform:translate3d(-40px, 20px, 0) }
+}
+
+.wrap{
+position:relative;
+height:100%;
+display:grid;
+place-items:center;
+padding:24px;
+}
+.panel{
+width:min(900px, 100%);
+border:1px solid var(--border);
+background:linear-gradient(180deg, rgba(11,16,32,.82), rgba(11,16,32,.55));
+backdrop-filter: blur(10px);
+border-radius:20px;
+padding:28px;
+box-shadow: 0 18px 60px rgba(0,0,0,.55);
+display:grid;
+grid-template-columns: 1.2fr .8fr;
+gap:22px;
+overflow:hidden;
+}
+@media (max-width: 820px){
+.panel{ grid-template-columns: 1fr; }
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:8px 12px;
+border:1px solid rgba(77,226,255,.25);
+border-radius:999px;
+color:var(--accent);
+background:rgba(77,226,255,.06);
+font-weight:600;
+letter-spacing:.3px;
+width:max-content;
+}
+.dot{
+width:10px;height:10px;border-radius:50%;
+background:var(--accent);
+box-shadow:0 0 18px rgba(77,226,255,.65);
+}
+h1{
+margin:14px 0 8px;
+font-size:clamp(26px, 3.2vw, 38px);
+line-height:1.15;
+}
+p{
+margin:10px 0;
+color:var(--muted);
+line-height:1.7;
+font-size:15.5px;
+}
+.code{
+margin-top:14px;
+padding:12px 14px;
+border:1px dashed rgba(255,255,255,.16);
+border-radius:14px;
+background:rgba(0,0,0,.18);
+font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+color:#d7e6ff;
+font-size:13px;
+}
+.actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:16px;
+}
+.btn{
+appearance:none;
+border:1px solid rgba(255,255,255,.14);
+background:rgba(255,255,255,.06);
+color:var(--text);
+padding:10px 14px;
+border-radius:12px;
+text-decoration:none;
+font-weight:650;
+letter-spacing:.2px;
+transition: transform .12s ease, background .12s ease, border-color .12s ease;
+display:inline-flex;
+align-items:center;
+gap:10px;
+}
+.btn:hover{
+transform: translateY(-1px);
+background:rgba(255,255,255,.09);
+border-color:rgba(255,255,255,.22);
+}
+.btn.primary{
+background:rgba(77,226,255,.12);
+border-color:rgba(77,226,255,.35);
+color:#eaffff;
+}
+.btn.primary:hover{
+background:rgba(77,226,255,.16);
+border-color:rgba(77,226,255,.45);
+}
+.btn.warn{
+background:rgba(255,211,106,.10);
+border-color:rgba(255,211,106,.35);
+color:#fff6dd;
+}
+
+.right{
+position:relative;
+border:1px solid rgba(255,255,255,.10);
+border-radius:18px;
+background: radial-gradient(600px 300px at 30% 25%, rgba(77,226,255,.12), transparent 55%),
+radial-gradient(520px 280px at 70% 60%, rgba(255,211,106,.10), transparent 55%),
+rgba(0,0,0,.18);
+padding:18px;
+min-height: 220px;
+overflow:hidden;
+}
+.ring{
+position:absolute;
+inset:-40px;
+border-radius:50%;
+border:2px solid rgba(77,226,255,.18);
+box-shadow: inset 0 0 70px rgba(77,226,255,.08);
+animation: spin 12s linear infinite;
+}
+.ring.r2{
+inset:-70px;
+border-color: rgba(255,211,106,.16);
+animation-duration: 18s;
+animation-direction: reverse;
+}
+@keyframes spin{
+from{ transform:rotate(0deg) }
+to{ transform:rotate(360deg) }
+}
+.status{
+position:relative;
+z-index:1;
+display:grid;
+gap:10px;
+}
+.kpi{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:10px 12px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.10);
+background:rgba(0,0,0,.14);
+font-size:14px;
+}
+.kpi b{
+color:#eaf6ff;
+font-weight:700;
+}
+.kpi span{
+color:var(--muted);
+}
+.pill{
+padding:4px 8px;
+border-radius:999px;
+font-size:12.5px;
+border:1px solid rgba(255,255,255,.14);
+background:rgba(255,255,255,.06);
+color:#dbe7ff;
+}
+.pill.down{
+border-color:rgba(255,90,90,.35);
+background:rgba(255,90,90,.10);
+color:#ffd6d6;
+}
+.pill.warn{
+border-color:rgba(255,211,106,.38);
+background:rgba(255,211,106,.12);
+color:#fff3d3;
+}
+footer{
+margin-top:14px;
+color:rgba(255,255,255,.42);
+font-size:12.5px;
+}
+</style>
+</head>
+
+<body>
+<div class="stars" aria-hidden="true"></div>
+
+<main class="wrap">
+<section class="panel" role="region" aria-label="404 not found">
+<div>
+<div class="badge">
+<span class="dot" aria-hidden="true"></span>
+航道狀態：中斷（404）
+</div>
+
+<h1>你進入了「不存在的艙段」</h1>
+<p>
+這個連結可能已被移除、改名，或被封存於相位海的回聲層。
+你可以返回首頁，或前往管理團隊與科普對戲專區重新定位航道。
+</p>
+
+<div class="code" id="diagnostic">
+DIAG: PATH=<span id="path"></span> ｜ REF=<span id="ref"></span>
+</div>
+
+<div class="actions">
+<a class="btn primary" href="./index.html">返回首頁</a>
+<a class="btn" href="./pages/team.html">管理團隊</a>
+<a class="btn" href="./pages/articles.html">科普對戲文章</a>
+<a class="btn warn" href="javascript:history.back()">返回上一頁</a>
+</div>
+
+<footer>
+ARC-方舟｜若此連結由站內導覽產生，請回報給管理團隊以修復航道索引。
+</footer>
+</div>
+
+<aside class="right" aria-label="diagnostic panel">
+<div class="ring" aria-hidden="true"></div>
+<div class="ring r2" aria-hidden="true"></div>
+
+<div class="status">
+<div class="kpi">
+<span>Φ值（相位擾動）</span>
+<b>↑ 0.72</b>
+<span class="pill warn">偏高</span>
+</div>
+<div class="kpi">
+<span>E密度（回聲）</span>
+<b>0.41</b>
+<span class="pill">穩定</span>
+</div>
+<div class="kpi">
+<span>Δτ噪聲（時間）</span>
+<b>↑ 0.58</b>
+<span class="pill warn">波動</span>
+</div>
+<div class="kpi">
+<span>導航鎖定</span>
+<b>FAIL</b>
+<span class="pill down">中斷</span>
+</div>
+</div>
+</aside>
+</section>
+</main>
+
+<script>
+// Lightweight diagnostics (no backend, safe for GitHub Pages)
+(function () {
+const pathEl = document.getElementById("path");
+const refEl = document.getElementById("ref");
+if (pathEl) pathEl.textContent = location.pathname || "/";
+if (refEl) refEl.textContent = document.referrer ? new URL(document.referrer).host : "N/A";
+})();
+</script>
+</body>
+</html>
