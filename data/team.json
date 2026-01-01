@@ -2,46 +2,46 @@
 "members": [
 {
 "id": "owner-proxy",
-"name": "Owner 代理",
-"role": "Owner / 總指揮",
-"tags": ["方舟總部", "決策", "航季規劃"],
+"name": "白雲",
+"role": "GM / 遊戲策劃",
+"tags": ["決策", "秩序", "網站"],
 "bio": "負責全站與伺服器方向、年度航季主線與核心規則定調；處理重大爭議、合作與對外窗口。",
-"avatar": "../assets/img/team/gm.png",
+"avatar": "../assets/img/team/白雲.png",
 "links": [
 { "label": "Discord（登艦入口）", "url": "https://discord.gg/2BsC3VzEWs" }
 ]
 },
 {
 "id": "gm-core",
-"name": "GM 統籌",
-"role": "GM / 主線主持",
-"tags": ["主線", "副本", "艦況事件"],
-"bio": "負責年度主線節奏、航季簡報、事件投放與副本收束；確保硬科幻底座與回聲層超自然規則不崩。",
-"avatar": "../assets/img/team/gm.png",
+"name": "里奧",
+"role": "GM / 統籌",
+"tags": ["主線", "副本", "顧問"],
+"bio": "幫了很大忙！擅長搜集資料及統整，主動且有想法。",
+"avatar": "../assets/img/team/里奧.png",
 "links": [
 { "label": "文章：新手上艦指南", "url": "./articles.html" }
 ]
 },
 {
 "id": "mod-ops",
-"name": "艦務稽核官",
-"role": "Moderator / 秩序與規範",
-"tags": ["秩序", "申訴", "稽核"],
-"bio": "負責規則落地、違規處理、申訴流程與風險控管；維持頻道秩序與玩家體驗。",
-"avatar": "../assets/img/team/mod1.png",
+"name": "亞絲拉爾",
+"role": "Moderator / 文書",
+"tags": ["秩序", "申訴", "吉祥物"],
+"bio": "方舟吉祥物，擅長寫一切文案。",
+"avatar": "../assets/img/team/亞絲拉爾.png",
 "links": [
-{ "label": "規則與公告", "url": "https://discord.gg/2BsC3VzEWs" }
+{ "label": "方舟航誌", "url": "./index.html" }
 ]
 },
 {
 "id": "mod-lore",
-"name": "航道館員",
-"role": "Moderator / 世界觀與資料",
-"tags": ["世界觀", "文明收錄", "資料庫"],
-"bio": "負責星球文明與設定收錄、整理玩家自創文明、維護資料一致性；協助新船員融入。",
-"avatar": "../assets/img/team/mod1.png",
+"name": "Rachel",
+"role": "Moderator / 對戲玩家",
+"tags": ["群寵", "對戲", "可愛"],
+"bio": "很會對戲！是個可愛的女孩子，討人喜歡。",
+"avatar": "../assets/img/team/Rachel.png",
 "links": [
-{ "label": "科普對戲文章", "url": "./articles.html" }
+{ "label": "ARC-01", "url": "./team.html" }
 ]
 },
 {
@@ -57,11 +57,11 @@
 },
 {
 "id": "mod-tech",
-"name": "艦載系統員",
+"name": "方舟系統員",
 "role": "Moderator / Bot 與技術",
 "tags": ["Discord", "Bot", "自動化"],
 "bio": "負責 Discord 結構、機器人與自動化流程；維護商店、點數與公告推送等系統。",
-"avatar": "../assets/img/team/mod1.png",
+"avatar": "../assets/img/team/gm.png",
 "links": [
 { "label": "GitHub Pages", "url": "https://pages.github.com/" }
 ]
